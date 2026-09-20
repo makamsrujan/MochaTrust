@@ -24,3 +24,5 @@
 MochaTrust/
 ├── index.html       # Single-page mobile-first application & state container
 └── README.md        # Project documentation
+
+🌐 **Live Prototype Demo:** Experience the fully interactive mobile-first protocol here: https://mochatrust.oneapp.dev/
