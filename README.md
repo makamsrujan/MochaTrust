@@ -20,9 +20,9 @@
 
 ---
 
-## 📦 Project Structure
+## 🏗️ Project Architecture & Structure
 MochaTrust/
-├── index.html       # Single-page mobile-first application & state container
-└── README.md        # Project documentation
+├── 📄 index.html        # Single-page mobile-first application, UI components, & global state container (window.appState)
+└── 📄 README.md         # Project documentation, submission guide, and technical architecture overview
 
 🌐 **Live Prototype Demo:** Experience the fully interactive mobile-first protocol here: https://mochatrust.oneapp.dev/
