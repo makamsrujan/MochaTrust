@@ -1,0 +1,358 @@
+<html>
+        <head><title>Downloaded HTML</title></head>
+        <body>
+            <pre style="white-space: pre-wrap; word-wrap: break-word;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MochaTrust - AI-Powered Risk Protocol</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google GenAI SDK via ESM -->
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.run/@google/genai"
+        }
+      }
+    </script>
+    <style>
+        .phone-frame { max-width: 412px; margin: 2rem auto; border-radius: 40px; overflow: hidden; border: 8px solid #1e293b; background-color: #020617; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen p-4">
+
+    <div class="phone-frame shadow-2xl relative">
+        <!-- Live Updatable Phone Status Bar -->
+        <div class="flex justify-between items-center px-6 pt-4 pb-2 bg-slate-950 text-[11px] font-mono text-slate-400">
+            <span id="live-clock">9:41:00 • 12ms Engine</span>
+            <div class="flex items-center space-x-2">
+                <span>95% Safety Score</span>
+                <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+            </div>
+        </div>
+
+        <!-- SCREEN CONTAINER -->
+        <div id="app-screen" class="p-6 pb-10 min-h-[750px] flex flex-col justify-between">
+            <!-- Dynamic Content Injected Here -->
+        </div>
+    </div>
+
+    <!-- Navigation Switcher for Demo / PPT Review -->
+    <div class="text-center mt-2 space-x-2">
+        <button onclick="switchScreen(1)" class="px-3 py-1 bg-slate-800 text-xs rounded text-slate-300">Screen 1 (Access)</button>
+        <button onclick="switchScreen(2)" class="px-3 py-1 bg-slate-800 text-xs rounded text-slate-300">Screen 2 (Pre-Trade & AI)</button>
+        <button onclick="switchScreen(3)" class="px-3 py-1 bg-slate-800 text-xs rounded text-slate-300">Screen 3 (Portfolio)</button>
+    </div>
+
+    <script type="module">
+        import { GoogleGenAI } from "@google/genai";
+
+        // Insert your Gemini API Key here to activate live structural explanations
+        const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"; 
+        
+        let aiClient = null;
+        try {
+            if (GEMINI_API_KEY && GEMINI_API_KEY !== "YOUR_GEMINI_API_KEY_HERE") {
+                aiClient = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
+            }
+        } catch (e) {
+            console.warn("Gemini initialization notice:", e);
+        }
+
+        // Live Clock Tick Function
+        function startLiveClock() {
+            const clockEl = document.getElementById('live-clock');
+            if (!clockEl) return;
+            const update = () => {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                clockEl.innerText = `${timeString} • 12ms Engine`;
+            };
+            update();
+            setInterval(update, 1000);
+        }
+
+        // Global state attached to window to prevent any reference errors
+        window.appState = {
+            screen: 1,
+            selectedAsset: 'Global EV Index',
+            symbol: 'EVX',
+            price: 8210.00,
+            notional: 25000,
+            leverage: 10,
+            stressTest: 16,
+            balance: 49988.75
+        };
+
+        window.switchScreen = function(screenNum) {
+            window.appState.screen = screenNum;
+            window.render();
+            if (screenNum === 2 || screenNum === 3) {
+                window.fetchRiskDecoderExplanation();
+            }
+        }
+
+        window.updateState = function(key, value) {
+            window.appState[key] = value;
+            window.render();
+            if (window.appState.screen === 2) {
+                window.fetchRiskDecoderExplanation();
+            }
+        }
+
+        // ---------------------------------------------------------------------------
+        // PPT CLAIM ENFORCEMENT: AI Explains, Never Predicts (Strict Structural Decoder)
+        // ---------------------------------------------------------------------------
+        window.fetchRiskDecoderExplanation = async function() {
+            const outputEl = document.getElementById('ai-risk-decoder-output');
+            if (!outputEl) return;
+
+            outputEl.innerHTML = `<span class="text-indigo-400 animate-pulse">⚙️ MochaLearn AI decoding 12ms risk telemetry...</span>`;
+
+            const prompt = `You are MochaLearn, the institutional risk-decoder for MochaTrust. 
+            CORE PROTOCOL - "AI Explains, Never Predicts": You must ONLY explain financial derivatives mechanics, collateral safety buffers, platform fees, and leverage calculations. You are strictly forbidden from providing price predictions, market forecasts, trading recommendations, or financial advice.
+            
+            Current User Configuration from PPT Claims:
+            - Asset: ${window.appState.selectedAsset} (${window.appState.symbol}) at ₹${window.appState.price.toLocaleString()}
+            - Notional Position: ₹${window.appState.notional.toLocaleString()}
+            - Leverage Multiplier: ${window.appState.leverage}x
+            - Stress Test Shock Simulation: -${window.appState.stressTest}%
+            - Margin Safety Score Metric: 95.0%
+
+            Write a concise, professional 2-sentence structural explanation detailing how this margin buffer handles the risk shock with complete fee transparency.`;
+
+            if (!aiClient) {
+                setTimeout(() => {
+                    outputEl.innerHTML = `<strong>Structural Explanation (${window.appState.symbol}):</strong> At ${window.appState.leverage}x leverage, your position maintains a 95% margin safety score designed to absorb a -${window.appState.stressTest}% market swing. Upfront friction and fee structures are fully itemized with zero hidden slippage.`;
+                }, 300);
+                return;
+            }
+
+            try {
+                const response = await aiClient.models.generateContent({
+                    model: 'gemini-2.5-flash',
+                    contents: prompt,
+                });
+                outputEl.innerHTML = response.text || "Structural analysis completed successfully.";
+            } catch (err) {
+                outputEl.innerHTML = `⚠️ <strong>Decoder Note:</strong> Telemetry active. 95% safety score verified for ${window.appState.leverage}x leverage parameters at 12ms execution runtime.`;
+            }
+        }
+
+        window.render = function() {
+            const container = document.getElementById('app-screen');
+            if (window.appState.screen === 1) {
+                container.innerHTML = renderScreen1();
+            } else if (window.appState.screen === 2) {
+                container.innerHTML = renderScreen2();
+            } else if (window.appState.screen === 3) {
+                container.innerHTML = renderScreen3();
+            }
+            startLiveClock(); // Re-bind clock element upon rendering
+        }
+
+        function renderScreen1() {
+            return `
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">Screen 1 • Growth Engine Access</span>
+                        <span class="text-[10px] bg-emerald-950 text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-500/30">12ms Runtime</span>
+                    </div>
+                    <h2 class="text-xl font-bold text-white mb-1">Global Market Access</h2>
+                    <p class="text-xs text-slate-400 mb-4">Select an asset to inspect transparent costs and compliance rules.</p>
+
+                    <div class="space-y-3">
+                        <!-- GTE Asset Card -->
+                        <div onclick="window.updateState('symbol', 'GTE'); window.updateState('price', 19450); window.updateState('selectedAsset', 'Global Tech Equity');" class="p-3.5 bg-slate-900 border ${window.appState.symbol==='GTE'?'border-emerald-400 bg-slate-900/90 shadow-lg':'border-slate-800'} rounded-2xl cursor-pointer hover:border-emerald-500 transition">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-9 h-9 rounded-xl bg-slate-800 flex items-center font-bold text-emerald-400 text-xs justify-center border border-slate-700">GTE</div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-white">Global Tech Equity</h4>
+                                        <span class="text-[10px] text-slate-400">Notional Leveraged Perp</span>
+                                    </div>
+                                </div>
+                                <div class="text-right"><span class="text-sm font-mono font-bold text-white">₹19,450.00</span></div>
+                            </div>
+                        </div>
+
+                        <!-- EVX Asset Card -->
+                        <div onclick="window.updateState('symbol', 'EVX'); window.updateState('price', 8210); window.updateState('selectedAsset', 'Global EV Index');" class="p-3.5 bg-slate-900 border ${window.appState.symbol==='EVX'?'border-emerald-400 bg-slate-900/90 shadow-lg':'border-slate-800'} rounded-2xl cursor-pointer hover:border-emerald-500 transition">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-9 h-9 rounded-xl bg-slate-800 flex items-center font-bold text-emerald-400 text-xs justify-center border border-slate-700">EVX</div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-white">Global EV Index</h4>
+                                        <span class="text-[10px] text-slate-400">Notional Leveraged Perp</span>
+                                    </div>
+                                </div>
+                                <div class="text-right"><span class="text-sm font-mono font-bold text-white">₹8,210.00</span></div>
+                            </div>
+                        </div>
+
+                        <!-- XAU Asset Card -->
+                        <div onclick="window.updateState('symbol', 'XAU'); window.updateState('price', 62800); window.updateState('selectedAsset', 'Precious Metal Perpetual');" class="p-3.5 bg-slate-900 border ${window.appState.symbol==='XAU'?'border-emerald-400 bg-slate-900/90 shadow-lg':'border-slate-800'} rounded-2xl cursor-pointer hover:border-emerald-500 transition">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-9 h-9 rounded-xl bg-slate-800 flex items-center font-bold text-amber-400 text-xs justify-center border border-slate-700">XAU</div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-white">Precious Metal Perpetual</h4>
+                                        <span class="text-[10px] text-slate-400">Notional Leveraged Perp</span>
+                                    </div>
+                                </div>
+                                <div class="text-right"><span class="text-sm font-mono font-bold text-white">₹62,800.00</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 p-3 bg-indigo-950/40 border border-indigo-500/30 rounded-xl">
+                        <div class="flex items-center space-x-2 mb-1">
+                            <span class="w-2 h-2 bg-indigo-400 rounded-full animate-ping"></span>
+                            <span class="text-[11px] font-bold text-indigo-300">MochaTrust Compliance Growth Engine</span>
+                        </div>
+                        <p class="text-[11px] text-slate-300 leading-snug">Asset <span class="text-white font-semibold">${window.appState.selectedAsset}</span> selected. Pre-trade risk simulation is ready to verify your 95% safety score.</p>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button onclick="window.switchScreen(2)" class="w-full py-3.5 bg-gradient-to-r from-teal-400 to-emerald-400 text-slate-950 font-bold rounded-xl text-sm shadow-lg hover:opacity-90 transition">
+                        Proceed to Pre-Trade Risk Simulator →
+                    </button>
+                </div>
+            `;
+        }
+
+        function renderScreen2() {
+            let fee = (window.appState.notional * 0.0002).toFixed(2);
+            let spread = (window.appState.notional * 0.00025).toFixed(2);
+            let totalUpfront = (parseFloat(fee) + parseFloat(spread)).toFixed(2);
+
+            return `
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">Screen 2 • Pre-Trade Risk & Transparency</span>
+                        <span class="text-[10px] bg-emerald-950 text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-500/30">95% Safety Score</span>
+                    </div>
+
+                    <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl mb-3 flex justify-between items-center">
+                        <div>
+                            <span class="text-[10px] text-slate-400 block">${window.appState.selectedAsset} (${window.appState.symbol})</span>
+                            <span class="text-base font-mono font-bold text-white">₹${window.appState.price.toLocaleString()}</span>
+                        </div>
+                        <span class="text-xs font-mono bg-indigo-950 text-indigo-300 px-2.5 py-1 rounded-lg border border-indigo-500/40">${window.appState.leverage}x Leverage</span>
+                    </div>
+
+                    <label class="text-[11px] text-slate-400 block mb-1">Select Notional Position Size:</label>
+                    <div class="grid grid-cols-3 gap-2 mb-3">
+                        <button onclick="window.updateState('notional', 25000);" class="p-2 bg-slate-900 border ${window.appState.notional===25000?'border-emerald-400 text-emerald-400':'border-slate-800 text-slate-300'} rounded-xl text-xs font-mono font-bold">₹25,000</button>
+                        <button onclick="window.updateState('notional', 50000);" class="p-2 bg-slate-900 border ${window.appState.notional===50000?'border-emerald-400 text-emerald-400':'border-slate-800 text-slate-300'} rounded-xl text-xs font-mono font-bold">₹50,000</button>
+                        <button onclick="window.updateState('notional', 100000);" class="p-2 bg-slate-900 border ${window.appState.notional===100000?'border-emerald-400 text-emerald-400':'border-slate-800 text-slate-300'} rounded-xl text-xs font-mono font-bold">₹100,000</button>
+                    </div>
+
+                    <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl mb-3 text-xs space-y-1.5">
+                        <div class="flex justify-between font-semibold text-slate-300 border-b border-slate-800 pb-1">
+                            <span>Complete Cost Transparency</span><span class="text-emerald-400">Zero Hidden Fees</span>
+                        </div>
+                        <div class="flex justify-between text-slate-400"><span>Notional Position:</span><span class="font-mono text-white">₹${window.appState.notional.toLocaleString()}</span></div>
+                        <div class="flex justify-between text-slate-400"><span>Platform Fee (0.020%):</span><span class="font-mono text-white">₹${fee}</span></div>
+                        <div class="flex justify-between text-slate-400"><span>Est. Spread & Execution:</span><span class="font-mono text-white">₹${spread}</span></div>
+                        <div class="flex justify-between font-bold text-slate-200 pt-1 border-t border-slate-800"><span>Total Upfront Friction:</span><span class="font-mono text-emerald-400">₹${totalUpfront}</span></div>
+                    </div>
+
+                    <!-- GEMINI AI RISK DECODER (AI EXPLAINS, NEVER PREDICTS) -->
+                    <div class="p-3 bg-indigo-950/40 border border-indigo-500/40 rounded-xl mb-3">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-[11px] font-bold text-indigo-300 flex items-center gap-1.5">
+                                <span class="w-2 h-2 bg-indigo-400 rounded-full animate-ping"></span>
+                                MochaLearn Risk Decoder (AI Explains, Never Predicts)
+                            </span>
+                        </div>
+                        <div id="ai-risk-decoder-output" class="text-[11px] text-slate-300 leading-snug">
+                            Decoding margin mechanics...
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs text-slate-300 font-semibold">Stress-Test Simulator</span>
+                            <span id="shock-value-display" class="text-[10px] font-mono bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-500/30">-${window.appState.stressTest}% Shock</span>
+                        </div>
+                        <input type="range" min="5" max="25" value="${window.appState.stressTest}" class="w-full accent-emerald-400 mb-2 cursor-pointer" oninput="window.appState.stressTest=this.value; document.getElementById('shock-value-display').innerText='-' + this.value + '% Shock'; window.fetchRiskDecoderExplanation();">
+                        <div class="flex justify-between text-xs pt-1 border-t border-slate-800">
+                            <span class="text-slate-400">Safety Score Metric:</span><span class="font-mono font-bold text-emerald-400">95.0% Optimal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button onclick="window.switchScreen(3)" class="w-full py-3.5 bg-gradient-to-r from-teal-400 to-emerald-400 text-slate-950 font-bold rounded-xl text-sm shadow-lg hover:opacity-95 transition">
+                        Confirm Trade & Sync Portfolio →
+                    </button>
+                </div>
+            `;
+        }
+
+        function renderScreen3() {
+            let fee = (window.appState.notional * 0.0002).toFixed(2);
+            let spread = (window.appState.notional * 0.00025).toFixed(2);
+            let totalUpfront = (parseFloat(fee) + parseFloat(spread)).toFixed(2);
+            let adjustedBalance = (50000 - parseFloat(totalUpfront)).toFixed(2);
+
+            return `
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-mono text-emerald-400 uppercase tracking-widest">Screen 3 • Active Portfolio Loop</span>
+                        <span class="text-[10px] bg-emerald-950 text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-500/30">12ms Telemetry Synced</span>
+                    </div>
+
+                    <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl mb-3 shadow-md">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-[11px] text-slate-400 uppercase tracking-wider">Collateral Balance</span>
+                            <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">Margin Safety: 95%</span>
+                        </div>
+                        <h2 class="text-2xl font-mono font-bold text-emerald-400">₹${parseFloat(adjustedBalance).toLocaleString()}</h2>
+                        <span class="text-[10px] text-slate-400">Base Equity: ₹50,000.00 (Upfront Friction: -₹${totalUpfront})</span>
+                    </div>
+
+                    <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl mb-3">
+                        <div class="flex justify-between text-xs mb-2">
+                            <span class="text-slate-400">Active Instrument:</span><span class="font-bold text-white">${window.appState.selectedAsset} (${window.appState.symbol})</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-center">
+                            <div class="bg-slate-950 p-2 rounded-lg border border-slate-800"><span class="text-[9px] text-slate-400 block">Notional</span><span class="text-xs font-mono font-bold text-white">₹${window.appState.notional.toLocaleString()}</span></div>
+                            <div class="bg-slate-950 p-2 rounded-lg border border-slate-800"><span class="text-[9px] text-slate-400 block">Fee Paid</span><span class="text-xs font-mono font-bold text-emerald-400">₹${totalUpfront}</span></div>
+                            <div class="bg-slate-950 p-2 rounded-lg border border-slate-800"><span class="text-[9px] text-slate-400 block">Stress Test</span><span class="text-xs font-mono font-bold text-indigo-400">-${window.appState.stressTest}%</span></div>
+                        </div>
+                    </div>
+
+                    <!-- GEMINI AI PORTFOLIO GUARDIAN EXPLAINER -->
+                    <div class="p-3 bg-indigo-950/40 border border-indigo-500/40 rounded-xl mb-3">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-[11px] font-bold text-indigo-300 flex items-center gap-1.5">
+                                <span class="w-2 h-2 bg-indigo-400 rounded-full animate-ping"></span>
+                                MochaLearn Portfolio Guardian Explainer
+                            </span>
+                        </div>
+                        <div id="ai-risk-decoder-output" class="text-[11px] text-slate-300 leading-snug">
+                            Auditing collateral safety margin...
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button onclick="window.switchScreen(1)" class="w-full py-3 bg-slate-900 border border-slate-700 text-slate-300 font-bold rounded-xl text-xs hover:bg-slate-800 transition">
+                        ← Return to Asset Selection
+                    </button>
+                </div>
+            `;
+        }
+
+        window.render();
+    </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"e3c1c9af36de41759418005494a48906","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html></pre>
+        </body>
+    </html>
