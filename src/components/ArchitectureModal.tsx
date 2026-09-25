@@ -88,6 +88,15 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({ isOpen, on
             </button>
 
             <button
+              onClick={() => downloadFile('/MochaTrust-Jury-Pitch-Guide.txt', 'MochaTrust-Jury-Pitch-Guide.txt')}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-950/80 hover:bg-amber-900 border border-amber-500/50 text-amber-300 text-xs font-semibold rounded-lg transition-colors shadow-sm"
+              title="Download Jury Pitch Guide & Q&A Defense Script"
+            >
+              <Download className="w-3.5 h-3.5" />
+              Pitch Script (.txt)
+            </button>
+
+            <button
               onClick={onClose}
               className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors ml-1"
               aria-label="Close modal"
