@@ -3,6 +3,7 @@
 **Built by Team Quantum Sprint**  
 *Turning Trust & Access into Sustainable Trading Volume*
 
+[![Production on Vercel](https://img.shields.io/badge/Production%20Live-my--first--hackathonproject.vercel.app-000000?style=for-the-badge&logo=vercel)](https://my-first-hackathonproject.vercel.app)
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmakamsrujan%2FMochaTrust)
 
 ---
@@ -11,8 +12,9 @@
 
 | Environment | Direct URL | Status | Description |
 | :--- | :--- | :--- | :--- |
-| **Active Live Web App** | [**Launch MochaTrust Live**](https://ais-dev-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app) | 🟢 **Online (200 OK)** | Full-fidelity interactive simulator running on Cloud Run |
-| **Shared / Production App** | [**Open Production Link**](https://ais-pre-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app) | 🟡 **Shared Stage** | Edge-routed release preview |
+| **🚀 Official Live App (Vercel)** | [**my-first-hackathonproject.vercel.app**](https://my-first-hackathonproject.vercel.app) | 🟢 **Live (200 OK)** | **Primary public deployment hosted on Vercel Edge** |
+| **AI Studio Live Mirror** | [**Launch MochaTrust Live**](https://ais-dev-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app) | 🟢 **Online (200 OK)** | Interactive simulator running on Google Cloud Run |
+| **Edge Preview Stage** | [**Open Production Link**](https://ais-pre-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app) | 🟡 **Shared Stage** | Edge-routed release preview |
 | **1-Click Vercel Deploy** | [**Deploy on Vercel**](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmakamsrujan%2FMochaTrust) | ⚡ **Automated** | Native zero-config Vite SPA deployment via `vercel.json` |
 | **GitHub Repository** | [**makamsrujan/MochaTrust**](https://github.com/makamsrujan/MochaTrust) | 🟢 **Synced (main)** | Full source code, test suites & documentation |
 
