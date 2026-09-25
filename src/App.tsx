@@ -49,22 +49,22 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-6">
-        {/* Pitch Principle Hero Callout: Slide 7 Key Takeaway */}
+        {/* Core Architecture Principle */}
         <div className="p-3.5 px-4 rounded-xl bg-gradient-to-r from-blue-950/40 via-cyan-950/50 to-slate-900 border border-cyan-500/40 shadow-md flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center font-black text-slate-950 text-sm shadow-md shadow-cyan-500/20">
-              💡
+              🛡️
             </span>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="text-xs font-bold text-white tracking-tight uppercase font-mono">
-                  Round 1 Pitch Foundation:
+                  Platform Core:
                 </span>
                 <span className="text-xs font-black font-mono text-cyan-300 bg-cyan-950 border border-cyan-500/50 px-2.5 py-0.5 rounded shadow-sm shadow-cyan-500/20">
                   AI Explains but Never Predicts
                 </span>
-                <span className="text-[10px] font-mono text-slate-400 border border-slate-700/60 rounded px-1.5 py-0.2">
-                  Slide 6 & 7 Guardrail
+                <span className="text-[10px] font-mono text-emerald-400 border border-emerald-500/40 bg-emerald-950/40 rounded px-1.5 py-0.2">
+                  SEBI Compliant Risk Engine
                 </span>
               </div>
               <p className="text-[11px] text-slate-300 leading-snug mt-1">

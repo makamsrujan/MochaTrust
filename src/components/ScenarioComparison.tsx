@@ -129,7 +129,7 @@ export const ScenarioComparison: React.FC<ScenarioComparisonProps> = ({ currentI
         <div className="bg-[#0b1326] border-2 border-cyan-500/60 rounded-xl p-5 space-y-4 relative shadow-xl shadow-cyan-950/40">
           <div className="flex items-center justify-between pb-3 border-b border-cyan-500/40">
             <div>
-              <span className="text-[10px] font-mono uppercase text-cyan-400 tracking-wider font-semibold">Scenario B (Round 1 Pitch)</span>
+              <span className="text-[10px] font-mono uppercase text-cyan-400 tracking-wider font-semibold">Scenario B (MochaTrust Strategy)</span>
               <h3 className="text-base font-bold text-white flex items-center gap-1.5">
                 <span>MochaTrust Model</span>
                 <span className="text-cyan-400 text-xs">⭐</span>
@@ -265,7 +265,7 @@ export const ScenarioComparison: React.FC<ScenarioComparisonProps> = ({ currentI
                 <td className="py-2.5 px-3 font-semibold text-white">Cost Transparency</td>
                 <td className="py-2.5 px-3 text-rose-400 font-mono">Opaque spread + hidden slippage</td>
                 <td className="py-2.5 px-3 text-cyan-400 font-mono">Itemized upfront with 0 slippage</td>
-                <td className="py-2.5 px-3 text-slate-400">Eliminates the #1 source of user distrust cited in Round 1.</td>
+                <td className="py-2.5 px-3 text-slate-400">Eliminates the #1 source of user distrust across retail platforms.</td>
               </tr>
               <tr>
                 <td className="py-2.5 px-3 font-semibold text-white">Pre-Trade Risk Simulator</td>

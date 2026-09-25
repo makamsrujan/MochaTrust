@@ -97,7 +97,7 @@ export const MochaTrustSandbox: React.FC = () => {
           MochaTrust Pre-Trade Risk & Radical Cost Transparency Engine
         </h1>
         <p className="text-xs text-slate-400 max-w-xl mx-auto">
-          Operationalizing Screens 1, 2 & 3 from Team Quantum Sprint's Round 1 Pitch (Slides 5, 6, 7 & 11).
+          Interactive execution of pre-trade leverage safeguards, volatility stress tests, and upfront fee transparency.
         </p>
       </div>
 
@@ -403,7 +403,7 @@ export const MochaTrustSandbox: React.FC = () => {
             <div className="p-3.5 rounded-xl bg-gradient-to-r from-amber-950/30 to-indigo-950/30 border border-amber-500/40 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold text-amber-300">Milestone-Locked Referral Loop</span>
-                <span className="text-[10px] font-mono text-cyan-300">Pillar 4 (Slide 5)</span>
+                <span className="text-[10px] font-mono text-cyan-300">Milestone Tier 1</span>
               </div>
               <p className="text-[11px] text-slate-300">
                 You have passed <strong className="text-white">{completedSimTrades} of 3</strong> pre-trade risk simulations. Complete 3 safe simulations to unlock your tier-1 referral invite code for 15% peer fee rebates.

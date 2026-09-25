@@ -72,7 +72,7 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({ isOpen, on
             <button
               onClick={() => downloadFile('/architecture-flowchart.svg', 'MochaTrust-Architecture-Vector.svg')}
               className="flex items-center gap-1.5 px-3 py-1.5 bg-cyan-950 hover:bg-cyan-900 border border-cyan-500/50 text-cyan-300 text-xs font-semibold rounded-lg transition-colors shadow-sm"
-              title="Download vector SVG for crisp presentation slides"
+              title="Download high-resolution vector SVG blueprint"
             >
               <Download className="w-3.5 h-3.5" />
               Download SVG
@@ -85,15 +85,6 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({ isOpen, on
             >
               <Download className="w-3.5 h-3.5" />
               Download JPG
-            </button>
-
-            <button
-              onClick={() => downloadFile('/MochaTrust-Jury-Pitch-Guide.txt', 'MochaTrust-Jury-Pitch-Guide.txt')}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-950/80 hover:bg-amber-900 border border-amber-500/50 text-amber-300 text-xs font-semibold rounded-lg transition-colors shadow-sm"
-              title="Download Jury Pitch Guide & Q&A Defense Script"
-            >
-              <Download className="w-3.5 h-3.5" />
-              Pitch Script (.txt)
             </button>
 
             <button
@@ -147,10 +138,10 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({ isOpen, on
           )}
         </div>
 
-        {/* Footer Notes for Jury Presentation */}
+        {/* Footer Notes */}
         <div className="px-6 py-3 border-t border-slate-800 bg-[#070c18] flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
           <p>
-            💡 <strong className="text-slate-200">Presentation Tip:</strong> Download the <strong className="text-cyan-300 font-mono">SVG</strong> format to insert directly into PowerPoint/Keynote for infinite vector sharpness without pixelation.
+            💡 <strong className="text-slate-200">Format Note:</strong> The <strong className="text-cyan-300 font-mono">Vector SVG</strong> format renders with lossless clarity across ultra-wide monitors and high-resolution displays.
           </p>
           <div className="flex items-center gap-2">
             <a

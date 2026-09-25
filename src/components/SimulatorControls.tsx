@@ -81,7 +81,7 @@ export const SimulatorControls: React.FC<SimulatorControlsProps> = ({
           />
           <div className="flex justify-between text-[10px] text-slate-500 font-mono">
             <span>0.010% (Ultra-Low)</span>
-            <span className="text-cyan-400/90 font-medium">0.020% (MochaTrust Pitch)</span>
+            <span className="text-cyan-400/90 font-medium">0.020% (MochaTrust Model)</span>
             <span>0.080% (Incumbent)</span>
           </div>
         </div>
@@ -332,7 +332,7 @@ export const SimulatorControls: React.FC<SimulatorControlsProps> = ({
           />
           <div className="flex justify-between text-[10px] text-slate-500 font-mono">
             <span>₹20,000 (Casual)</span>
-            <span className="text-cyan-400 font-semibold">₹50,000 (Target from Slide 7)</span>
+            <span className="text-cyan-400 font-semibold">₹50,000 (Target Volume)</span>
             <span>₹1,50,000 (Active Pro)</span>
           </div>
         </div>

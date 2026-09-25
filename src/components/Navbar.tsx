@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layers, BarChart3, Smartphone, BookOpen, ShieldCheck, Zap, ArrowRightLeft, Download, Laptop, Check, Copy, Network, FileText } from 'lucide-react';
+import { Layers, BarChart3, Smartphone, BookOpen, ShieldCheck, Zap, ArrowRightLeft, Download, Laptop, Check, Copy, Network } from 'lucide-react';
 import { MochaTrustLogo } from './MochaTrustLogo';
 import { PresetScenario } from '../types';
 import { ArchitectureModal } from './ArchitectureModal';
@@ -173,16 +173,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             <Layers className="w-3.5 h-3.5 text-cyan-400" />
             <span>Architecture</span>
           </button>
-
-          <a
-            href="/MochaTrust-Jury-Pitch-Guide.txt"
-            download="MochaTrust-Jury-Pitch-Guide.txt"
-            className="hidden xl:flex items-center gap-1.5 px-2.5 py-1.5 bg-amber-950/70 hover:bg-amber-900 text-amber-300 border border-amber-500/40 rounded-lg transition-colors cursor-pointer"
-            title="Download Jury Pitch Script & Defense Guide (.txt)"
-          >
-            <FileText className="w-3.5 h-3.5 text-amber-400" />
-            <span>Pitch Script</span>
-          </a>
 
           <div className="flex items-center gap-1.5">
             <span className="text-slate-500 hidden xl:inline">Preset:</span>

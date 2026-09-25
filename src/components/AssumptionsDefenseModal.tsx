@@ -8,7 +8,7 @@ export const AssumptionsDefense: React.FC = () => {
       <div className="p-5 rounded-xl bg-[#0b1326] border border-cyan-500/40 space-y-2">
         <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-wider font-mono">
           <BookOpen className="w-4 h-4" />
-          <span>Track 2 Evaluation Defense · Grounded in Round 1 Recommendation</span>
+          <span>Strategic Model Rationale · Quantitative Risk Architecture</span>
         </div>
         <h1 className="text-xl font-bold text-white tracking-tight">
           MochaTrust: Growth & Monetization Model Rationale
@@ -18,7 +18,7 @@ export const AssumptionsDefense: React.FC = () => {
         </p>
       </div>
 
-      {/* CORE DIFFERENTIATION: Slide 6 & 7 AI Architectural Guardrail */}
+      {/* CORE DIFFERENTIATION: AI Architectural Guardrail */}
       <div className="p-5 rounded-xl bg-gradient-to-r from-cyan-950/40 via-blue-950/30 to-[#0b1326] border-2 border-cyan-400/60 shadow-lg space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
@@ -26,7 +26,7 @@ export const AssumptionsDefense: React.FC = () => {
               ★
             </span>
             <span className="text-sm font-bold text-white tracking-tight">
-              Slide 6 & 7 Architectural Anchor: "AI Explains, Never Predicts or Makes Assumptions"
+              Architectural Anchor: "AI Explains, Never Predicts or Makes Assumptions"
             </span>
           </div>
           <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-[11px] font-mono font-semibold">
@@ -37,7 +37,7 @@ export const AssumptionsDefense: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-1">
           <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800 space-y-1.5">
             <span className="font-semibold text-cyan-300 font-mono text-[11px] block">
-              Slide 6: Guardrailed Deterministic AI Architecture
+              Guardrailed Deterministic AI Architecture
             </span>
             <p className="text-slate-300 leading-relaxed italic">
               "Powered by Gemini, MochaLearn uses AI strictly for educating users on structural market mechanics without giving suggestions or predictions."
@@ -49,7 +49,7 @@ export const AssumptionsDefense: React.FC = () => {
 
           <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800 space-y-1.5">
             <span className="font-semibold text-emerald-300 font-mono text-[11px] block">
-              Slide 7: Key Takeaway — AI Explains But Never Predicts
+              Key Operating Standard: AI Explains But Never Predicts
             </span>
             <p className="text-slate-300 leading-relaxed italic">
               "MochaLearn Risk Decoder: AI Explains, Never Predicts. Structural Explanation: At 10x leverage, your position maintains a 95% margin safety score designed to absorb a -9% market swing."
@@ -69,9 +69,9 @@ export const AssumptionsDefense: React.FC = () => {
             <span>EDUCATE & SIMULATE (MochaLearn)</span>
           </div>
           <p className="text-xs text-slate-300 leading-relaxed">
-            <strong>Round 1 Thesis:</strong> Over 90% of retail derivative losses in India stem from understanding gaps rather than infrastructure friction.
+            <strong>Industry Bottleneck:</strong> Over 90% of retail derivative losses in India stem from understanding gaps rather than infrastructure friction.
             <br />
-            <strong>Prototype Implementation:</strong> Mandatory pre-trade simulation with deterministic AI explanations of leverage dynamics and margin cushions, reducing first-month liquidation churn from 18% to 3.8%.
+            <strong>Platform Implementation:</strong> Mandatory pre-trade simulation with deterministic AI explanations of leverage dynamics and margin cushions, reducing first-month liquidation churn from 18% to 3.8%.
           </p>
         </div>
 
@@ -81,9 +81,9 @@ export const AssumptionsDefense: React.FC = () => {
             <span>UNDERSTAND & TRUST (0.020% Micro-Fee)</span>
           </div>
           <p className="text-xs text-slate-300 leading-relaxed">
-            <strong>Round 1 Thesis:</strong> Incumbent brokers charge high fees (0.060%) and hide 4 bps in execution slippage, causing distrust.
+            <strong>Industry Bottleneck:</strong> Incumbent brokers charge high fees (0.060%) and hide 4 bps in execution slippage, causing distrust.
             <br />
-            <strong>Prototype Implementation:</strong> Transparent 0.020% platform fee + upfront spread itemization before confirmation. Zero hidden fees directly boosts the Platform Trust Score to 95/100.
+            <strong>Platform Implementation:</strong> Transparent 0.020% platform fee + upfront spread itemization before confirmation. Zero hidden fees directly boosts the Platform Trust Score to 95/100.
           </p>
         </div>
 
@@ -93,9 +93,9 @@ export const AssumptionsDefense: React.FC = () => {
             <span>ACTIVATE & RETAIN (95% Safety Score)</span>
           </div>
           <p className="text-xs text-slate-300 leading-relaxed">
-            <strong>Round 1 Thesis:</strong> Market shocks (-5% to -25%) wipe out inexperienced traders who then churn permanently.
+            <strong>Industry Bottleneck:</strong> Market shocks (-5% to -25%) wipe out inexperienced traders who then churn permanently.
             <br />
-            <strong>Prototype Implementation:</strong> Algorithmic stress-testing verifies margin sufficiency before trade execution, preventing sudden liquidations and keeping retail traders active over a 12-month horizon.
+            <strong>Platform Implementation:</strong> Algorithmic stress-testing verifies margin sufficiency before trade execution, preventing sudden liquidations and keeping retail traders active over a 12-month horizon.
           </p>
         </div>
 
@@ -105,9 +105,9 @@ export const AssumptionsDefense: React.FC = () => {
             <span>REFER & COMPOUND (Milestone Referrals)</span>
           </div>
           <p className="text-xs text-slate-300 leading-relaxed">
-            <strong>Round 1 Thesis:</strong> Purely paid performance acquisition is unsustainable for leveraged products (CAC &gt; ₹1,800).
+            <strong>Industry Bottleneck:</strong> Purely paid performance acquisition is unsustainable for leveraged products (CAC &gt; ₹1,800).
             <br />
-            <strong>Prototype Implementation:</strong> Users unlock referral codes only after completing 3 verified risk simulations, creating an organic compounding viral loop with blended CAC under ₹340.
+            <strong>Platform Implementation:</strong> Users unlock referral codes only after completing 3 verified risk simulations, creating an organic compounding viral loop with blended CAC under ₹340.
           </p>
         </div>
       </div>
@@ -160,7 +160,7 @@ export const AssumptionsDefense: React.FC = () => {
       {/* Target User Persona Reference */}
       <div className="p-5 rounded-xl bg-[#0b1326] border border-slate-800 space-y-3">
         <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-200">
-          Target Audience Grounding (From Slide 4)
+          Target Audience Grounding & Trader Profiles
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
           <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
