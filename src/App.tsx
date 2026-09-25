@@ -192,13 +192,22 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-slate-800/80 bg-[#070c18] py-4 px-4 sm:px-6 text-xs text-slate-500">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2 flex-wrap">
             <span className="text-slate-300 font-semibold">MochaTrust Prototype</span>
             <span aria-hidden="true">·</span>
             <span>RVCE ACM Marketsphere 2026</span>
             <span aria-hidden="true">·</span>
             <span>Track 2: Growth & Monetization</span>
+            <span aria-hidden="true">·</span>
+            <a
+              href="/MochaTrust-Jury-Pitch-Guide.txt"
+              download="MochaTrust-Jury-Pitch-Guide.txt"
+              className="text-cyan-400 hover:text-cyan-300 font-semibold underline underline-offset-2 flex items-center gap-1 cursor-pointer transition-colors"
+              title="Download 3-minute pitch script, live demo checklist, and Q&A battlecards"
+            >
+              <span>📄 Download Jury Pitch Guide (.txt)</span>
+            </a>
           </div>
           <div className="flex items-center gap-3 font-mono text-[11px] text-slate-400">
             <span>Team Quantum Sprint: Shreyas Prabhu, Srujan Makam, Swayam Satish, Vishvajit S</span>

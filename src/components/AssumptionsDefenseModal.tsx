@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, CheckCircle, ShieldCheck, Award, FileText, ExternalLink } from 'lucide-react';
+import { BookOpen, CheckCircle, ShieldCheck, Award, FileText, ExternalLink, Download } from 'lucide-react';
 
 export const AssumptionsDefense: React.FC = () => {
   return (
@@ -16,6 +16,31 @@ export const AssumptionsDefense: React.FC = () => {
         <p className="text-xs text-slate-300 leading-relaxed">
           Operationalized for RVCE ACM Marketsphere 2026 by <strong>Team Quantum Sprint</strong> (Shreyas Prabhu, Srujan Makam, Swayam Satish, Vishvajit S).
         </p>
+      </div>
+
+      {/* Downloadable Jury Pitch & Defense Guide */}
+      <div className="p-4 rounded-xl bg-gradient-to-r from-blue-950/50 via-slate-900 to-[#0b1326] border border-cyan-500/40 flex flex-wrap items-center justify-between gap-3 shadow-md">
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-300">
+            <FileText className="w-5 h-5" />
+          </div>
+          <div>
+            <h3 className="text-xs font-bold text-white tracking-wide">
+              Official Jury Pitch Script & Defense Masterclass (.txt)
+            </h3>
+            <p className="text-[11px] text-slate-400">
+              Complete 3-minute spoken script, live demo walkthrough checklist, and judge Q&amp;A defense battlecards.
+            </p>
+          </div>
+        </div>
+        <a
+          href="/MochaTrust-Jury-Pitch-Guide.txt"
+          download="MochaTrust-Jury-Pitch-Guide.txt"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-md transition-all cursor-pointer"
+        >
+          <Download className="w-3.5 h-3.5" />
+          <span>Download Pitch Guide (.txt)</span>
+        </a>
       </div>
 
       {/* CORE DIFFERENTIATION: AI Architectural Guardrail */}
