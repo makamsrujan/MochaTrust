@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MochaTrust — Growth Funnel & Monetization Simulator | RVCE ACM Marketsphere 2026</title>
+    <meta name="description" content="Strategic simulator & calculator operationalizing MochaTrade's growth funnel, trust-building levers, and 0.020% transparent monetization model." />
+    <meta property="og:title" content="MochaTrust — Growth Funnel & Monetization Simulator" />
+    <meta property="og:description" content="Strategic simulator & calculator operationalizing MochaTrade's growth funnel, trust-building levers, and 0.020% transparent monetization model." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#080d1a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" type="image/svg+xml" href="/icon-192.svg" />
+    <link rel="apple-touch-icon" href="/icon-192.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#080d1a] text-slate-100 font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.log('ServiceWorker registration note:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,6 @@
+{
+  "name": "MochaTrust - Growth & Monetization Simulator",
+  "description": "Round 2 strategic simulator & calculator operationalizing MochaTrade's growth funnel, trust-building levers, and 0.020% transparent monetization model.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

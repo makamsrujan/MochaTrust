@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="110" fill="#080d1a"/>
+  <circle cx="256" cy="256" r="200" fill="url(#grad512)" fill-opacity="0.18"/>
+  <defs>
+    <linearGradient id="grad512" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad512" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield icon -->
+  <path d="M256 96 L384 154 V256 C384 336 328 402 256 426 C184 402 128 336 128 256 V154 Z" fill="none" stroke="url(#shieldGrad512)" stroke-width="20" stroke-linejoin="round"/>
+  <!-- Lightning bolt / Growth pulse -->
+  <path d="M272 176 L208 262 H256 L240 336 L314 246 H262 Z" fill="url(#grad512)"/>
+</svg>
