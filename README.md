@@ -1,79 +1,45 @@
-# MochaTrust — Growth Funnel & Monetization Simulator
+# MochaTrust — Growth & Risk Engine
 ### RVCE ACM Marketsphere 2026 · Track 2: Growth & Monetization Strategy
-**Built by Team Quantum Sprint**  
-*Turning Trust & Access into Sustainable Trading Volume*
+**Team Quantum Sprint**
 
-[![Production on Vercel](https://img.shields.io/badge/Production%20Live-mochatrust--teamquantumsprint.vercel.app-000000?style=for-the-badge&logo=vercel)](https://mochatrust-teamquantumsprint.vercel.app)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmakamsrujan%2FMochaTrust)
+Live Deployment: [mochatrust-teamquantumsprint.vercel.app](https://mochatrust-teamquantumsprint.vercel.app)
 
 ---
 
-## 🌐 Live Web Application & Deployments
+## Overview
 
-| Environment | Direct URL | Status | Description |
-| :--- | :--- | :--- | :--- |
-| **🚀 Official Live App (Vercel)** | [**mochatrust-teamquantumsprint.vercel.app**](https://mochatrust-teamquantumsprint.vercel.app) | 🟢 **Primary Domain** | **Primary public deployment hosted on Vercel Edge** |
-| **Backup Vercel Domain** | [**my-first-hackathonproject.vercel.app**](https://my-first-hackathonproject.vercel.app) | 🟢 **Live (200 OK)** | Initial deployment domain |
-| **AI Studio Live Mirror** | [**Launch MochaTrust Live**](https://ais-dev-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app) | 🟢 **Online (200 OK)** | Interactive simulator running on Google Cloud Run |
-| **Edge Preview Stage** | [**Open Production Link**](https://ais-pre-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app) | 🟡 **Shared Stage** | Edge-routed release preview |
-| **1-Click Vercel Deploy** | [**Deploy on Vercel**](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmakamsrujan%2FMochaTrust) | ⚡ **Automated** | Native zero-config Vite SPA deployment via `vercel.json` |
-| **GitHub Repository** | [**makamsrujan/MochaTrust**](https://github.com/makamsrujan/MochaTrust) | 🟢 **Synced (main)** | Full source code, test suites & documentation |
+MochaTrust is a financial risk and growth simulator designed for sustainable retail trading platforms. The engine replaces the industry's traditional "churn-and-burn" model with an approach grounded in upfront fee transparency and deterministic risk education.
+
+### Core Principle: "AI Explains but Never Predicts"
+MochaLearn deploys deterministic AI strictly to decode leverage risks, liquidation thresholds, and transaction cost breakdowns. In accordance with financial regulatory guidelines, the platform offers zero predictive market tips, directional price targets, or algorithmic signals.
 
 ---
 
-## ⚡ Core Philosophy: "AI Explains but Never Predicts"
-MochaTrust operationalizes a compliant, transparent fintech architecture for MochaTrade (YC S26). In direct alignment with **Slide 6 & Slide 7** of our Round 1 presentation, MochaLearn uses deterministic AI strictly for structural risk mechanics, leverage dynamics, and upfront fee transparency — zero price speculation or directional trading assumptions.
+## Key Features
 
----
-
-## 🚀 Key Features
-
-1. **Interactive 12-Month Growth & Monetization Simulator**
-   - Live calculations across 4 customizable core inputs:
-     - Monthly Marketing / CAC Budget (₹50k – ₹500k)
-     - Average Trader Notional Size (₹25k – ₹500k)
-     - Trades per Month per Active Trader (4 – 35)
-     - Upfront Platform Fee Rate (0.015% – 0.040%)
-   - Instant 12ms deterministic model output calculating:
-     - Blended CAC & Trader Payback Period (3.8 months vs 8.2 mo industry baseline)
-     - Safety Score (95.0% target via automated margin stops)
-     - Month 12 Net Operating Margin & Total Platform Revenue
-     - Active Trader Retained Pool & Liquidity Health
+1. **12-Month Unit Economics Simulator**
+   - In-memory deterministic modeling running in sub-12ms.
+   - Dynamic parameters: CAC budget, average trade notional size, monthly trade frequency, and platform fee rate.
+   - Real-time payback period, margin safety, and 12-month cohort retention modeling.
 
 2. **Scenario Comparison Matrix**
-   - Real-time side-by-side comparative model evaluating:
-     - **MochaTrust (Our Strategy)**: Trust & Access Funnel, 95% Safety Score, 0.020% fee, ₹1,200 CAC.
-     - **Industry Baseline**: Opaque spreads, 65% Safety, ₹3,100 CAC, high early churn.
-     - **Viral Blitz (Aggressive)**: High ad-spend, aggressive incentives, high volatility.
+   - Side-by-side comparative analysis of:
+     - **MochaTrust Strategy**: Transparent 0.020% fee, pre-trade stress test, 95% safety score, ~3.8 month payback.
+     - **Industry Baseline**: Opaque spreads, 65% safety score, ~8.2 month payback, high early churn.
+     - **Aggressive Subsidized Model**: Teaser rates, volatile retention, delayed unit economic profitability.
 
-3. **MochaLearn Risk Decoder (Educational Sandbox)**
-   - Pre-trade risk breakdown: Required margin, adverse market delta, and margin safety cushion.
-   - Interactive stress-test simulator: Test positions against -2% to -20% market shocks.
-   - Strict guardrails: 100% compliant with SEBI & global fintech transparency directives.
+3. **MochaLearn Risk Decoder**
+   - Pre-trade margin safety evaluation.
+   - Interactive volatility stress testing (-2% to -20% market shocks).
+   - Upfront itemization of exchange fees and spreads.
 
-4. **Standalone Desktop & Mobile Experience**
-   - Progressive Web App (PWA) with macOS standalone desktop installation.
-   - Android mobile app view modeling Screen 1 (Access), Screen 2 (Risk Decoder), and Screen 3 (Trade Execution).
-
----
-
-## 🛠️ Tech Stack & Architecture
-
-- **Frontend**: React 19, TypeScript, Tailwind CSS, Lucide Icons, Recharts
-- **Backend / API**: Express on Node.js with Vite middleware dev server
-- **Deployment**: Vercel ready via `vercel.json` and Google Cloud Run
-- **AI Engine**: Google Gemini API (`@google/genai`) with in-memory caching, rate-limit cooldown, and deterministic mathematical fallback
-- **Runtime Performance**: Sub-12ms recalculation cycle
+4. **Multi-Surface Client**
+   - Standalone desktop Progressive Web App (PWA).
+   - Interactive mobile interface view modeling execution flows.
 
 ---
 
-## 📐 System Architecture Flowchart
-
-![MochaTrust System Architecture Flowchart](./public/architecture-flowchart.svg)
-
-### 📥 Download Presentation-Ready Assets:
-- 🔹 **[Download Vector SVG Blueprint (Infinite Sharpness)](./public/architecture-flowchart.svg)** — *Best for PowerPoint, Keynote, and high-DPI pitch decks*
-- 🔹 **[Download High-Resolution Graphic JPG](./public/architecture-flowchart.jpg)** — *Instant slide paste format*
+## System Architecture
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -92,66 +58,38 @@ MochaTrust operationalizes a compliant, transparent fintech architecture for Moc
                                      ▼
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        TIER 3 · INFRASTRUCTURE                         │
-│   • Vercel Global Edge CDN (mochatrust-teamquantumsprint.vercel.app)   │
+│   • Vercel Global Edge CDN (Single Page Application Routing)           │
 │   • Google Cloud Run Container Microservice (Asia-SE1)                 │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
+---
+
+## Tech Stack
+
+- **Frontend**: React 19, TypeScript, Tailwind CSS, Recharts, Lucide Icons
+- **Backend**: Node.js, Express proxy
+- **AI Integration**: Google Gemini API (`@google/genai`) with offline deterministic fallback
+- **Build & Routing**: Vite, `vercel.json` SPA rewrites
 
 ---
 
-## ⚡ 1-Click Deploy to Vercel
+## Local Development
 
-You can deploy your own copy of MochaTrust to Vercel with a single click:
-
-1. Click the **[Deploy with Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmakamsrujan%2FMochaTrust)** button above.
-2. Connect your GitHub account and click **Create**.
-3. Vercel will automatically build the app using the included `vercel.json` configuration and provision a live `https://<your-project>.vercel.app` domain.
-
-### Or Deploy via Vercel CLI:
-```bash
-npm i -g vercel
-vercel --prod
-```
-
----
-
-## 💻 Local Development Setup
-
-1. **Clone the repository**:
+1. **Clone & install**:
    ```bash
    git clone https://github.com/makamsrujan/MochaTrust.git
    cd MochaTrust
-   ```
-
-2. **Install dependencies**:
-   ```bash
    npm install
    ```
 
-3. **Set up Environment Variables**:
-   ```bash
-   cp .env.example .env
-   # Add your GEMINI_API_KEY if desired (optional; deterministic fallback is included)
-   ```
-
-4. **Start the development server**:
+2. **Run dev server**:
    ```bash
    npm run dev
    ```
    Open `http://localhost:3000` in your browser.
 
-5. **Build for production**:
+3. **Build**:
    ```bash
    npm run build
-   npm start
    ```
-
----
-
-## 🏆 Presentation Reference (Marketsphere 2026)
-- **Slide 5**: Market Entry & CAC Barrier Diagnostics
-- **Slide 6**: Transparent Fee Architecture vs Opaque Spreads
-- **Slide 7**: MochaLearn Risk Engine ("AI Explains but Never Predicts")
-- **Slide 11**: 12-Month Unit Economics & Monetization Waterfall
-- **Team**: Quantum Sprint
