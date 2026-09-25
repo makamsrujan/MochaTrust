@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Layers, BarChart3, Smartphone, BookOpen, ShieldCheck, Zap, ArrowRightLeft, Download, Laptop, Check, Copy } from 'lucide-react';
+import { Layers, BarChart3, Smartphone, BookOpen, ShieldCheck, Zap, ArrowRightLeft, Download, Laptop, Check, Copy, Network } from 'lucide-react';
 import { MochaTrustLogo } from './MochaTrustLogo';
 import { PresetScenario } from '../types';
+import { ArchitectureModal } from './ArchitectureModal';
 
 interface NavbarProps {
   activeTab: 'simulator' | 'comparison' | 'sandbox' | 'android' | 'defense';
@@ -20,6 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [showMacModal, setShowMacModal] = useState<boolean>(false);
+  const [showArchModal, setShowArchModal] = useState<boolean>(false);
   const [copiedLink, setCopiedLink] = useState<boolean>(false);
 
   useEffect(() => {
@@ -151,10 +153,27 @@ export const Navbar: React.FC<NavbarProps> = ({
             <BookOpen className="w-3.5 h-3.5" />
             Strategy & Assumptions
           </button>
+          <button
+            onClick={() => setShowArchModal(true)}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md text-cyan-400 hover:text-cyan-300 hover:bg-cyan-950/40 border border-cyan-500/20 transition-all cursor-pointer"
+            title="View and download high-resolution system architecture flowchart"
+          >
+            <Network className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Architecture Flowchart</span>
+          </button>
         </nav>
 
         {/* Quick Scenario Preset Dropdown/Buttons & Mac Install */}
         <div className="flex items-center gap-2 text-xs">
+          <button
+            onClick={() => setShowArchModal(true)}
+            className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-cyan-500/40 rounded-lg transition-colors cursor-pointer"
+            title="View system architecture diagram"
+          >
+            <Layers className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Architecture</span>
+          </button>
+
           <div className="flex items-center gap-1.5">
             <span className="text-slate-500 hidden xl:inline">Preset:</span>
             <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-md p-0.5">
@@ -266,6 +285,12 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </div>
       )}
+
+      {/* System Architecture Flowchart Modal */}
+      <ArchitectureModal
+        isOpen={showArchModal}
+        onClose={() => setShowArchModal(false)}
+      />
     </header>
   );
 };

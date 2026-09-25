@@ -67,6 +67,39 @@ MochaTrust operationalizes a compliant, transparent fintech architecture for Moc
 
 ---
 
+## 📐 System Architecture Flowchart
+
+![MochaTrust System Architecture Flowchart](./public/architecture-flowchart.svg)
+
+### 📥 Download Presentation-Ready Assets:
+- 🔹 **[Download Vector SVG Blueprint (Infinite Sharpness)](./public/architecture-flowchart.svg)** — *Best for PowerPoint, Keynote, and high-DPI pitch decks*
+- 🔹 **[Download High-Resolution Graphic JPG](./public/architecture-flowchart.jpg)** — *Instant slide paste format*
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                        TIER 1 · CLIENT LAYER                           │
+│   • 12-Month Simulator (React 19)   • Scenario Comparison Matrix      │
+│   • MochaLearn Risk Decoder UI       • Standalone Desktop & Mobile PWA │
+└────────────────────────────────────┬───────────────────────────────────┘
+                                     │ <12ms client math / REST
+                                     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                        TIER 2 · LOGIC & APIS                           │
+│   • Deterministic Financial Math     • Express API Proxy (server.ts)   │
+│   • Cohort Churn Decay Modeling      • Gemini AI SDK + Hard Failover   │
+└────────────────────────────────────┬───────────────────────────────────┘
+                                     │
+                                     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                        TIER 3 · INFRASTRUCTURE                         │
+│   • Vercel Global Edge CDN (mochatrust-teamquantumsprint.vercel.app)   │
+│   • Google Cloud Run Container Microservice (Asia-SE1)                 │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+
+---
+
 ## ⚡ 1-Click Deploy to Vercel
 
 You can deploy your own copy of MochaTrust to Vercel with a single click:
