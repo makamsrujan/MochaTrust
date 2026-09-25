@@ -3,6 +3,19 @@
 **Built by Team Quantum Sprint**  
 *Turning Trust & Access into Sustainable Trading Volume*
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmakamsrujan%2FMochaTrust)
+
+---
+
+## 🌐 Live Web Application & Deployments
+
+| Environment | Direct URL | Status | Description |
+| :--- | :--- | :--- | :--- |
+| **Active Live Web App** | [**Launch MochaTrust Live**](https://ais-dev-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app) | 🟢 **Online (200 OK)** | Full-fidelity interactive simulator running on Cloud Run |
+| **Shared / Production App** | [**Open Production Link**](https://ais-pre-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app) | 🟡 **Shared Stage** | Edge-routed release preview |
+| **1-Click Vercel Deploy** | [**Deploy on Vercel**](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmakamsrujan%2FMochaTrust) | ⚡ **Automated** | Native zero-config Vite SPA deployment via `vercel.json` |
+| **GitHub Repository** | [**makamsrujan/MochaTrust**](https://github.com/makamsrujan/MochaTrust) | 🟢 **Synced (main)** | Full source code, test suites & documentation |
+
 ---
 
 ## ⚡ Core Philosophy: "AI Explains but Never Predicts"
@@ -44,9 +57,26 @@ MochaTrust operationalizes a compliant, transparent fintech architecture for Moc
 ## 🛠️ Tech Stack & Architecture
 
 - **Frontend**: React 19, TypeScript, Tailwind CSS, Lucide Icons, Recharts
-- **Backend**: Express on Node.js (with Vite middleware dev server)
+- **Backend / API**: Express on Node.js with Vite middleware dev server
+- **Deployment**: Vercel ready via `vercel.json` and Google Cloud Run
 - **AI Engine**: Google Gemini API (`@google/genai`) with in-memory caching, rate-limit cooldown, and deterministic mathematical fallback
 - **Runtime Performance**: Sub-12ms recalculation cycle
+
+---
+
+## ⚡ 1-Click Deploy to Vercel
+
+You can deploy your own copy of MochaTrust to Vercel with a single click:
+
+1. Click the **[Deploy with Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmakamsrujan%2FMochaTrust)** button above.
+2. Connect your GitHub account and click **Create**.
+3. Vercel will automatically build the app using the included `vercel.json` configuration and provision a live `https://<your-project>.vercel.app` domain.
+
+### Or Deploy via Vercel CLI:
+```bash
+npm i -g vercel
+vercel --prod
+```
 
 ---
 
