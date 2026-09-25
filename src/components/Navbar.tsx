@@ -57,23 +57,18 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center gap-2 text-slate-400">
           <span className="font-semibold text-cyan-400">RVCE ACM Marketsphere 2026</span>
           <span aria-hidden="true" className="text-slate-600">·</span>
-          <span className="text-slate-300">Track 2: Growth & Monetization Strategy</span>
+          <span className="text-slate-300">Track 2: Growth & Monetization</span>
           <span aria-hidden="true" className="text-slate-600">·</span>
           <span className="text-cyan-300 font-semibold font-mono">Team Quantum Sprint</span>
         </div>
         <div className="flex items-center gap-3 text-slate-400">
           <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 font-mono text-[11px] font-semibold">
-            ✨ AI Explains but Never Predicts
+            🛡️ AI Explains but Never Predicts
           </span>
           <span aria-hidden="true" className="text-slate-700">|</span>
-          <span className="flex items-center gap-1 text-emerald-400 font-mono">
+          <span className="flex items-center gap-1 text-emerald-400 font-mono text-[11px]">
             <Zap className="w-3.5 h-3.5" />
-            12ms Engine
-          </span>
-          <span aria-hidden="true" className="text-slate-700">|</span>
-          <span className="flex items-center gap-1 text-cyan-300 font-mono">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            95% Safety Score
+            &lt;12ms Real-Time
           </span>
         </div>
       </div>
@@ -82,128 +77,97 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-4">
         {/* Brand */}
         <div className="flex items-center gap-3">
-          <MochaTrustLogo size={42} />
+          <MochaTrustLogo size={40} />
           <div>
             <div className="flex items-center gap-2">
               <span className="font-bold text-lg text-white tracking-tight">MochaTrust</span>
-              <span className="text-[10px] font-mono font-bold text-cyan-300 bg-cyan-950/80 border border-cyan-500/50 rounded-full px-2.5 py-0.5 shadow-sm shadow-cyan-500/20">
-                AI Explains but Never Predicts
+              <span className="text-[10px] font-mono font-semibold text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 rounded px-2 py-0.5">
+                SEBI Compliant
               </span>
             </div>
             <p className="text-[11px] text-slate-400 leading-none mt-1">
-              Turning Trust & Access Into Sustainable Volume · <span className="text-cyan-300 font-medium">AI Explains but Never Predicts</span>
+              Fintech Growth & Pre-Trade Risk Simulator
             </p>
           </div>
         </div>
 
         {/* Mode Navigation Tabs */}
-        <nav className="flex items-center gap-1 p-1 bg-slate-900/90 border border-slate-800 rounded-lg">
+        <nav className="flex items-center gap-1 p-1 bg-slate-900/90 border border-slate-800 rounded-lg overflow-x-auto max-w-full">
           <button
             onClick={() => setActiveTab('simulator')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'simulator'
-                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-semibold shadow'
+                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold shadow'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
             <BarChart3 className="w-3.5 h-3.5" />
-            12-Mo Simulator
+            12M Simulator
           </button>
           <button
             onClick={() => setActiveTab('comparison')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'comparison'
-                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-semibold shadow'
+                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold shadow'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
             <ArrowRightLeft className="w-3.5 h-3.5" />
-            Scenario Comparison
+            Scenario Matrix
           </button>
           <button
             onClick={() => setActiveTab('sandbox')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'sandbox'
-                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-semibold shadow'
+                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold shadow'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Smartphone className="w-3.5 h-3.5" />
-            Live Product Sandbox
+            <ShieldCheck className="w-3.5 h-3.5" />
+            Risk Decoder
           </button>
           <button
             onClick={() => setActiveTab('android')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'android'
                 ? 'bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 font-bold shadow'
                 : 'text-emerald-400 hover:text-emerald-300'
             }`}
           >
             <Smartphone className="w-3.5 h-3.5" />
-            Android App
+            Mobile App
           </button>
           <button
             onClick={() => setActiveTab('defense')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'defense'
-                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-semibold shadow'
+                ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold shadow'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
-            Strategy & Assumptions
-          </button>
-          <button
-            onClick={() => setShowArchModal(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md text-cyan-400 hover:text-cyan-300 hover:bg-cyan-950/40 border border-cyan-500/20 transition-all cursor-pointer"
-            title="View and download high-resolution system architecture flowchart"
-          >
-            <Network className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Architecture Flowchart</span>
+            Model Rationale
           </button>
         </nav>
 
-        {/* Quick Scenario Preset Dropdown/Buttons & Mac Install */}
+        {/* Quick Scenario Preset Dropdown/Buttons & Architecture Modal */}
         <div className="flex items-center gap-2 text-xs">
           <button
             onClick={() => setShowArchModal(true)}
-            className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-cyan-500/40 rounded-lg transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-cyan-500/40 rounded-lg transition-colors cursor-pointer"
             title="View system architecture diagram"
           >
             <Layers className="w-3.5 h-3.5 text-cyan-400" />
             <span>Architecture</span>
           </button>
 
-          <div className="flex items-center gap-1.5">
-            <span className="text-slate-500 hidden xl:inline">Preset:</span>
-            <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-md p-0.5">
-              {presets.map((preset) => {
-                const isSelected = activePresetId === preset.id;
-                return (
-                  <button
-                    key={preset.id}
-                    onClick={() => onSelectPreset(preset)}
-                    className={`px-2.5 py-1 text-xs rounded transition-colors ${
-                      isSelected
-                        ? 'bg-cyan-950 text-cyan-300 border border-cyan-500/40 font-medium'
-                        : 'text-slate-400 hover:text-slate-200'
-                    }`}
-                    title={preset.tagline}
-                  >
-                    {preset.id === 'mochatrust' ? 'MochaTrust ⭐' : preset.id === 'baseline' ? 'Baseline' : 'Viral Blitz'}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
           <button
             onClick={handleInstallClick}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-95 text-slate-950 font-bold rounded-lg shadow-sm shadow-cyan-500/30 transition-all cursor-pointer"
-            title="Install MochaTrust as a standalone application on macOS"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-95 text-slate-950 font-bold rounded-lg shadow-sm shadow-cyan-500/30 transition-all cursor-pointer"
+            title="Install MochaTrust as a standalone application"
           >
             <Laptop className="w-3.5 h-3.5" />
-            <span>Install on Mac</span>
+            <span>Install App</span>
           </button>
         </div>
       </div>

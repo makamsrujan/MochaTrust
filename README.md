@@ -2,7 +2,8 @@
 ### RVCE ACM Marketsphere 2026 · Track 2: Growth & Monetization Strategy
 **Team Quantum Sprint**
 
-Live Deployment: [mochatrust-teamquantumsprint.vercel.app](https://mochatrust-teamquantumsprint.vercel.app)
+Live Web App: [my-first-hackathonproject.vercel.app](https://my-first-hackathonproject.vercel.app)  
+Cloud Run Mirror: [ais-pre-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app](https://ais-pre-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app)
 
 ---
 

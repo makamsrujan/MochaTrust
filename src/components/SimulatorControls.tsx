@@ -55,7 +55,7 @@ export const SimulatorControls: React.FC<SimulatorControlsProps> = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5 text-xs font-semibold text-cyan-300">
             <DollarSign className="w-3.5 h-3.5" />
-            <span>1. PRICING & MONETIZATION (RADICAL COST TRANSPARENCY)</span>
+            <span>1. Pricing & Fee Transparency</span>
           </div>
           <span className="text-[11px] font-mono text-slate-400">
             Take Rate: {((inputs.platformFeeRateBps + inputs.spreadMarkupBps) / 100).toFixed(3)}%
@@ -135,7 +135,7 @@ export const SimulatorControls: React.FC<SimulatorControlsProps> = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5 text-xs font-semibold text-cyan-300">
             <Award className="w-3.5 h-3.5" />
-            <span>2. GROWTH-CHANNEL MIX (ORGANIC & COMPOUNDING)</span>
+            <span>2. Growth & Referral Mix</span>
           </div>
           <span className={`text-[11px] font-mono ${channelSum === 100 ? 'text-emerald-400' : 'text-amber-400'}`}>
             Total: {channelSum}% {channelSum !== 100 && '(auto-normalized)'}
@@ -227,7 +227,7 @@ export const SimulatorControls: React.FC<SimulatorControlsProps> = ({
       <div className="space-y-3 pt-4 border-t border-slate-800/80">
         <div className="flex items-center gap-1.5 text-xs font-semibold text-cyan-300">
           <Shield className="w-3.5 h-3.5" />
-          <span>3. TRUST-BUILDING MECHANISMS & SAFETY LOOPS</span>
+          <span>3. Risk Safeguards & Trust Gates</span>
         </div>
 
         {/* Mandatory Pre-Trade Risk Simulator Toggle */}
@@ -310,7 +310,8 @@ export const SimulatorControls: React.FC<SimulatorControlsProps> = ({
       {/* SECTION 4: Volume & Scale Parameters */}
       <div className="space-y-4 pt-4 border-t border-slate-800/80">
         <div className="flex items-center gap-1.5 text-xs font-semibold text-cyan-300">
-          <span>4. UNIT ECONOMICS & SCALE HYPOTHESES</span>
+          <DollarSign className="w-3.5 h-3.5" />
+          <span>4. User Volume & Capital Allocation</span>
         </div>
 
         {/* Avg Monthly Volume Per Trader */}

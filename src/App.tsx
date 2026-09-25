@@ -10,10 +10,12 @@ import { AndroidAppView } from './components/AndroidAppView';
 import { AssumptionsDefense } from './components/AssumptionsDefenseModal';
 import { SimulationInputs, PresetScenario } from './types';
 import { PRESET_SCENARIOS, calculateSimulation } from './utils/calculator';
+import { Sparkles, HelpCircle, ChevronDown, ChevronUp, ShieldCheck, ArrowRight, Zap, Target } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'simulator' | 'comparison' | 'sandbox' | 'android' | 'defense'>('simulator');
   const [activePresetId, setActivePresetId] = useState<string>('mochatrust');
+  const [showGuide, setShowGuide] = useState<boolean>(false);
   
   // Current active inputs
   const [inputs, setInputs] = useState<SimulationInputs>(PRESET_SCENARIOS[0].inputs);
@@ -49,36 +51,98 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-6">
-        {/* Core Architecture Principle */}
-        <div className="p-3.5 px-4 rounded-xl bg-gradient-to-r from-blue-950/40 via-cyan-950/50 to-slate-900 border border-cyan-500/40 shadow-md flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center font-black text-slate-950 text-sm shadow-md shadow-cyan-500/20">
-              🛡️
-            </span>
-            <div>
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-xs font-bold text-white tracking-tight uppercase font-mono">
-                  Platform Core:
+        {/* Preset Model Switcher Bar */}
+        <div className="bg-[#0b1326] border border-slate-800 rounded-xl p-4 shadow-lg space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">
+                Select Strategy Preset:
+              </span>
+              {activePresetId === 'custom' && (
+                <span className="text-[10px] font-mono text-cyan-400 bg-cyan-950/80 border border-cyan-500/40 rounded px-2 py-0.5">
+                  Custom User Adjusted
                 </span>
-                <span className="text-xs font-black font-mono text-cyan-300 bg-cyan-950 border border-cyan-500/50 px-2.5 py-0.5 rounded shadow-sm shadow-cyan-500/20">
-                  AI Explains but Never Predicts
-                </span>
-                <span className="text-[10px] font-mono text-emerald-400 border border-emerald-500/40 bg-emerald-950/40 rounded px-1.5 py-0.2">
-                  SEBI Compliant Risk Engine
-                </span>
-              </div>
-              <p className="text-[11px] text-slate-300 leading-snug mt-1">
-                MochaLearn uses deterministic AI strictly for structural risk mechanics, leverage dynamics, and radical fee transparency — zero price speculation or directional assumptions.
-              </p>
+              )}
             </div>
+
+            <button
+              onClick={() => setShowGuide(!showGuide)}
+              className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-cyan-300 transition-colors cursor-pointer"
+            >
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span>{showGuide ? 'Hide Quick Guide' : 'How this Simulator Works'}</span>
+              {showGuide ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+            </button>
           </div>
-          <button
-            onClick={() => setActiveTab('sandbox')}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-semibold transition-all cursor-pointer"
-          >
-            <span>Inspect Live Decoder</span>
-            <span>→</span>
-          </button>
+
+          {/* 3 Preset Clickable Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {PRESET_SCENARIOS.map((preset) => {
+              const isSelected = activePresetId === preset.id;
+              const isRecommended = preset.id === 'mochatrust';
+              const isBaseline = preset.id === 'baseline';
+
+              return (
+                <button
+                  key={preset.id}
+                  onClick={() => handleSelectPreset(preset)}
+                  className={`text-left p-3.5 rounded-lg border transition-all cursor-pointer relative overflow-hidden flex flex-col justify-between ${
+                    isSelected
+                      ? 'bg-cyan-950/40 border-cyan-400 shadow-md shadow-cyan-950/50'
+                      : 'bg-slate-900/70 border-slate-800 hover:border-slate-700 hover:bg-slate-900'
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-2 mb-1">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-sm">
+                        {isRecommended ? '⭐' : isBaseline ? '🏛️' : '🚀'}
+                      </span>
+                      <span className={`text-xs font-bold ${isSelected ? 'text-cyan-300' : 'text-white'}`}>
+                        {preset.name}
+                      </span>
+                    </div>
+                    {isRecommended && (
+                      <span className="text-[10px] font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 px-1.5 py-0.2 rounded font-semibold">
+                        Recommended
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[11px] text-slate-400 line-clamp-2">
+                    {preset.tagline}
+                  </p>
+                  <div className="flex items-center gap-2 mt-2 pt-2 border-t border-slate-800/60 text-[10px] font-mono text-slate-400">
+                    <span>Fee: {(preset.inputs.platformFeeRateBps / 100).toFixed(3)}%</span>
+                    <span>·</span>
+                    <span>Safety: {preset.id === 'mochatrust' ? '95%' : preset.id === 'baseline' ? '65%' : '45%'}</span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Expandable Quick Guide */}
+          {showGuide && (
+            <div className="mt-3 p-4 bg-slate-900/90 border border-slate-700/60 rounded-lg text-xs space-y-2.5 animate-fadeIn">
+              <div className="font-bold text-cyan-300 flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-cyan-400" />
+                <span>3-Step Quick Orientation:</span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-slate-300 text-[11px] leading-relaxed">
+                <div className="p-2.5 bg-[#0b1326] border border-slate-800 rounded">
+                  <strong className="text-white block mb-0.5">1. Drag the Levers</strong>
+                  Adjust the sliders on the left (Fee, CAC, Trade Size). The math runs locally in &lt;12ms with zero lag.
+                </div>
+                <div className="p-2.5 bg-[#0b1326] border border-slate-800 rounded">
+                  <strong className="text-white block mb-0.5">2. Check Trader Payback</strong>
+                  Look at the top hero cards: MochaTrust achieves a 3.8-month CAC payback vs. the 8.2-month industry baseline.
+                </div>
+                <div className="p-2.5 bg-[#0b1326] border border-slate-800 rounded">
+                  <strong className="text-white block mb-0.5">3. Test Risk Decoder</strong>
+                  Switch to the "Risk Decoder" tab to see our pre-trade stress test that protects traders from sudden liquidations.
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* VIEW 1: 12-Month Simulator Dashboard */}
