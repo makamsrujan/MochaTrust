@@ -3,7 +3,7 @@
 **Team Quantum Sprint**
 
 Live Web App: [https://temporary-fast-pulsar-rdtas5y-q42jalv79-anon-chi-jet.vercel.app]
-Cloud Run Mirror: [ais-pre-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app](https://ais-pre-52a7rigqsawr3gb4zvpw2u-601415106207.asia-southeast1.run.app)
+
 
 ---
 
