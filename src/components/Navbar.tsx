@@ -5,8 +5,8 @@ import { PresetScenario } from '../types';
 import { ArchitectureModal } from './ArchitectureModal';
 
 interface NavbarProps {
-  activeTab: 'simulator' | 'comparison' | 'sandbox' | 'android' | 'defense';
-  setActiveTab: (tab: 'simulator' | 'comparison' | 'sandbox' | 'android' | 'defense') => void;
+  activeTab: 'layman' | 'simulator' | 'comparison' | 'sandbox' | 'android' | 'defense';
+  setActiveTab: (tab: 'layman' | 'simulator' | 'comparison' | 'sandbox' | 'android' | 'defense') => void;
   presets: PresetScenario[];
   activePresetId: string;
   onSelectPreset: (preset: PresetScenario) => void;
@@ -94,6 +94,16 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Mode Navigation Tabs */}
         <nav className="flex items-center gap-1 p-1 bg-slate-900/90 border border-slate-800 rounded-lg overflow-x-auto max-w-full">
           <button
+            onClick={() => setActiveTab('layman')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-md transition-all whitespace-nowrap cursor-pointer ${
+              activeTab === 'layman'
+                ? 'bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 font-bold shadow'
+                : 'text-emerald-400 hover:text-emerald-300 font-semibold bg-emerald-950/30 border border-emerald-500/30'
+            }`}
+          >
+            <span>🟢 Layman Mode</span>
+          </button>
+          <button
             onClick={() => setActiveTab('simulator')}
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'simulator'
@@ -102,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <BarChart3 className="w-3.5 h-3.5" />
-            12M Simulator
+            12M Pro Simulator
           </button>
           <button
             onClick={() => setActiveTab('comparison')}

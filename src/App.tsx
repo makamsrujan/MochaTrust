@@ -14,9 +14,8 @@ import { PRESET_SCENARIOS, calculateSimulation } from './utils/calculator';
 import { Sparkles, HelpCircle, ChevronDown, ChevronUp, ShieldCheck, ArrowRight, Zap, Target } from 'lucide-react';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'simulator' | 'comparison' | 'sandbox' | 'android' | 'defense'>('simulator');
+  const [activeTab, setActiveTab] = useState<'layman' | 'simulator' | 'comparison' | 'sandbox' | 'android' | 'defense'>('layman');
   const [activePresetId, setActivePresetId] = useState<string>('mochatrust');
-  const [viewMode, setViewMode] = useState<'simple' | 'advanced'>('simple');
   const [showGuide, setShowGuide] = useState<boolean>(false);
   
   // Current active inputs
@@ -53,58 +52,38 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-6">
-        {/* Simple Mode vs Advanced Mode Switcher */}
-        <div className="flex flex-wrap items-center justify-between gap-3 bg-[#0b1326] border border-slate-800 rounded-xl p-2.5 px-4 shadow-md">
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs font-semibold text-slate-300">View Mode:</span>
-            <div className="flex items-center p-0.5 bg-slate-900 border border-slate-700/80 rounded-lg">
+        {/* VIEW 0: Layman Friendly Simple Simulator */}
+        {activeTab === 'layman' && (
+          <LaymanSimulator
+            inputs={inputs}
+            results={simulationResults}
+            activePresetId={activePresetId}
+            onSelectPreset={handleSelectPreset}
+            onInputsChange={handleCustomInputsChange}
+            onReset={handleReset}
+            onSwitchToAdvanced={() => setActiveTab('simulator')}
+          />
+        )}
+
+        {/* VIEW 1: Pro 12M Simulator Dashboard */}
+        {activeTab === 'simulator' && (
+          <div className="space-y-6">
+            {/* Quick Switch to Layman Mode Notice */}
+            <div className="flex flex-wrap items-center justify-between gap-3 p-3 bg-gradient-to-r from-emerald-950/40 via-slate-900 to-[#0b1326] border border-emerald-500/40 rounded-xl text-xs">
+              <div className="flex items-center gap-2">
+                <span className="text-base">🟢</span>
+                <span className="text-emerald-300 font-medium">
+                  Looking for the simplified, zero-jargon view for non-finance users?
+                </span>
+              </div>
               <button
-                onClick={() => setViewMode('simple')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer ${
-                  viewMode === 'simple'
-                    ? 'bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 shadow'
-                    : 'text-slate-400 hover:text-white'
-                }`}
+                onClick={() => setActiveTab('layman')}
+                className="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-all cursor-pointer shadow text-xs flex items-center gap-1.5"
               >
-                <span>🟢 Simple Mode (Layman Friendly)</span>
-              </button>
-              <button
-                onClick={() => setViewMode('advanced')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer ${
-                  viewMode === 'advanced'
-                    ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <span>⚙️ Advanced FinTech View</span>
+                <span>Switch to Layman Mode</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
-          </div>
-
-          <div className="text-[11px] text-slate-400 hidden sm:block">
-            {viewMode === 'simple'
-              ? '✨ Plain English · Zero jargon · Visual explanations'
-              : '📊 Full 12-month projections · 15 levers · Cohort economics'}
-          </div>
-        </div>
-
-        {/* VIEW 1: Simulator Dashboard */}
-        {activeTab === 'simulator' && (
-          <>
-            {viewMode === 'simple' ? (
-              /* Layman Simple Mode */
-              <LaymanSimulator
-                inputs={inputs}
-                results={simulationResults}
-                activePresetId={activePresetId}
-                onSelectPreset={handleSelectPreset}
-                onInputsChange={handleCustomInputsChange}
-                onReset={handleReset}
-                onSwitchToAdvanced={() => setViewMode('advanced')}
-              />
-            ) : (
-              /* Advanced FinTech Mode */
-              <div className="space-y-6">
                 {/* Preset Model Switcher Bar */}
                 <div className="bg-[#0b1326] border border-slate-800 rounded-xl p-4 shadow-lg space-y-3">
                   <div className="flex flex-wrap items-center justify-between gap-2">
@@ -217,9 +196,7 @@ export default function App() {
                     <TrustFunnelVisualizer inputs={inputs} results={simulationResults} />
                   </div>
                 </div>
-              </div>
-            )}
-          </>
+          </div>
         )}
 
         {/* VIEW 2: Head-to-Head Scenario Comparison */}
